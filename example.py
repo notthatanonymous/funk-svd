@@ -1,7 +1,7 @@
 from funk_svd.dataset import fetch_ml_ratings
 from funk_svd import SVD
 
-from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_absolute_error, accuracy_score
 
 
 df = fetch_ml_ratings(variant='100k')
@@ -19,3 +19,5 @@ pred = svd.predict(test)
 mae = mean_absolute_error(test['rating'], pred)
 
 print(f'Test MAE: {mae:.2f}')
+
+print(f'Score: {accuracy_score(test['rating'], pred)}')
